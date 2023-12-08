@@ -16,7 +16,15 @@ public class App {
       new ConcurrentHashMap<>();
 
   public static void main(String[] args) {
-    var app = Javalin.create().start("0.0.0.0", 7070);
+    var app =
+        Javalin.create(
+                config -> {
+                  config.plugins.enableCors(
+                      cors -> {
+                        cors.add(c -> c.anyHost());
+                      });
+                })
+            .start("0.0.0.0", 7070);
 
     app.ws(
         "/channels/{channel}",
