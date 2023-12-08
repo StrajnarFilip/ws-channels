@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class App {
   private static final String CHANNEL_KEY = "channel";
-  public static final Logger logger = Logger.getLogger("App");
+  private static final Logger logger = Logger.getLogger("App");
   private static final ConcurrentMap<String, CopyOnWriteArrayList<WsContext>> channelSubscribers =
       new ConcurrentHashMap<>();
 
